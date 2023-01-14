@@ -3,6 +3,8 @@
 This is proof-of-concept for executing python code in a sandboxed web assembly (wasm) build of python.
 It uses wasmer-python to  run the wasm build of python and wapm to install the python package.
 
+[![Setup and Test](https://github.com/jimkring/python-sandbox-wasm/actions/workflows/python-app.yml/badge.svg)](https://github.com/jimkring/python-sandbox-wasm/actions/workflows/python-app.yml)
+
 ## Resources
 Tools and examples used here:
 
