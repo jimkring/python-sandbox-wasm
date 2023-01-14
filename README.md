@@ -4,14 +4,11 @@ This is proof-of-concept for executing python code in a sandboxed web assembly (
 It uses wasmer-python to  run the wasm build of python and wapm to install the python package.
 
 ## Resources
-### starting point example
-https://github.com/wasmerio/wasmer-python/blob/master/examples/wasi.py
+Tools and examples used here:
 
-### wasmer-python
-https://github.com/wasmerio/wasmer-python
-
-### wapm python.wam package
-https://wapm.io/python/python
+- starting point example: https://github.com/wasmerio/wasmer-python/blob/master/examples/wasi.py
+- wasmer-python: https://github.com/wasmerio/wasmer-python
+- wapm python.wam package: https://wapm.io/python/python
 
 ## Prerequisite Setup
 ### Install wasmer and wapm
