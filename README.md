@@ -7,7 +7,7 @@ It uses wasmer-python to  run the wasm build of python and wapm to install the p
 
 ## How it all works
 
-- From our host python we use the [wasmer-python](https://github.com/wasmerio/wasmer-python) library to load and run the [python web assembly](https://wapm.io/python/python) (wasm) from wamp (web assembly package manager).
+- From our host python we use the [wasmer-python](https://github.com/wasmerio/wasmer-python) library to load and run the [python web assembly](https://wapm.io/python/python) (wasm) from wapm (web assembly package manager).
 
 - we create a "sandbox" folder that is shared with the web assembly python instance.
 
