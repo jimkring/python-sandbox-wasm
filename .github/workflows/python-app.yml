@@ -21,6 +21,7 @@ jobs:
         brew install wasmer
         brew install wapm
     - name: install python wasm
+      run: |
         echo -y | wapm install python/python
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
