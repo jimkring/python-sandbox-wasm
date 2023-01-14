@@ -21,6 +21,7 @@ jobs:
         brew install wasmer
         brew install wapm
     - name: install python wasm
+      # pipe "y" into wapm install to confirm key ssh key
       run: |
         echo y | wapm install python/python
     - name: Set up Python 3.10
