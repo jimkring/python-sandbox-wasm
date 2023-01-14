@@ -1,3 +1,13 @@
+# About
+
+This is proof-of-concept for executing python code in a sandboxed web assembly (wasm) build of python.
+It uses wasmer-python to  run the wasm build of python and wapm to install the python package.
+
+## wasmer-python
+https://github.com/wasmerio/wasmer-python
+
+## wapm python.wam package
+https://wapm.io/python/python
 
 # Prerequisite Setup
 ## Install wasmer and wapm
