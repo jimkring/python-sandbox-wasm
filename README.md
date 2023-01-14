@@ -73,3 +73,7 @@ Hello, world!
 It would be great to be able call into the python web assembly using functions/exports from the [python c api](https://docs.python.org/3/c-api/) that expose the interpreter. Right now, we are invoking the `_start()` which is like running python from a command line -- we can pass arguments and set environment variables as we run it.
 
 This would require a new build of the python.wasm possibly building it as a dynamic library. The nodjs package [python-wasm](https://www.npmjs.com/package/python-wasm) for embedding python takes an approach like this, I believe.
+
+## Configurable Resource Limits (RAM, Disk, CPU, etc)
+
+It would be good to limit the resources available to the sandboxed code. Wasmer (and the wasmer python api) exposes some options for this, I believe.
