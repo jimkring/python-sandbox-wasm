@@ -51,6 +51,9 @@ sys.stdout = open("sandbox/{stdout_file}", "w")
 # the wasm can access.
 sandbox_dir = Path.cwd() / "sandbox"
 
+# create sandbox dir if it doesn't exist
+sandbox_dir.mkdir(exist_ok=True)
+
 # Define the name of the python file to host the executable code
 sandbox_py = "sandbox.py"
 
