@@ -3,6 +3,20 @@
 This is proof-of-concept for executing python code in a sandboxed web assembly (wasm) build of python.
 It uses wasmer-python to  run the wasm build of python and wapm to install the python package.
 
+## How it all works
+
+- From our host python we use the [wasmer-python](https://github.com/wasmerio/wasmer-python) library to load and run the [python web assembly](https://wapm.io/python/python) (wasm) from wamp (web assembly package manager).
+
+- we create a "sandbox" folder that is shared with the web assembly python instance.
+
+- we take the unsafe python code (to be executed in the sandbox) and write it to a python file in the sandbox folder. We prepend to that file a few lines of code that will write the standard output (stdout) to a file in the sandbox folder (which we will then read back into the host python instance).
+
+- we run the python web assembly instance with the sandboxed python file we just created as the argument, so that the unsafe code runs inside the web assembly instance.
+
+- we then read the standard output file from the sandbox folder and return it to the host python instance.
+
+> Note: it does not seem possible to redirect the std output of the web assembly to file FROM THE HOST PYTHON.  This only works from the python code running inside the web assembly. That's why we have to prepend the unsafe code with a few lines of code that will write the std output to a file.
+
 ## Resources
 Tools and examples used here:
 
