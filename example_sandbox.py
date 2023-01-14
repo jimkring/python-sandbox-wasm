@@ -141,3 +141,6 @@ LEAVE_SANDBOX_FILES_FOR_DEBUG = False
 if not LEAVE_SANDBOX_FILES_FOR_DEBUG:
     sandbox_py_path.unlink()
     sandbox_stdout_path.unlink()
+    
+# this assertion is helpful for CI testing so we know if the sandbox isn't working
+assert "Hello, world!" in wasi_stdout_unsafe
