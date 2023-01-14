@@ -65,3 +65,11 @@ WARNING: this string is the result of executing unknown code, so be careful how 
 Hello, world!
 ####
 ```
+
+# Future Needs
+
+## Calling into Python C API
+
+It would be great to be able call into the python web assembly using functions/exports from the [python c api](https://docs.python.org/3/c-api/) that expose the interpreter. Right now, we are invoking the `_start()` which is like running python from a command line -- we can pass arguments and set environment variables as we run it.
+
+This would require a new build of the python.wasm possibly building it as a dynamic library. The nodjs package for embedding python takes an approach like this, I believe.
