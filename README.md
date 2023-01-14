@@ -24,8 +24,7 @@ $ source .venv/bin/activate
 
 install packages
 ```shell
-$ cd requirements
-$ ./pip-install.sh
+$ pip install -r requirements/requirements.txt
 ```
 
 # Run the example
