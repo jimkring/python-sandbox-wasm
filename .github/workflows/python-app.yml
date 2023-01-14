@@ -16,11 +16,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup wasmer and wamp with python.wasm
+    - name: Setup wasmer and wapm
       run: |
         brew install wasmer
         brew install wapm
-        wapm install python/python
+    - name: install python wasm
+        echo -y | wapm install python/python
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
