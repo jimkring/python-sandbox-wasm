@@ -12,14 +12,16 @@ permissions:
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup wasmer and wapm
-      run: |
-        brew install wasmer
-        brew install wapm
+#    - name: Setup wasmer and wapm (macos)
+#      run: |
+#        brew install wasmer
+#        brew install wapm
+    - name: Setup Wasmer
+      uses: wasmerio/setup-wasmer@v1
     - name: install python wasm
       # pipe "y" into wapm install to confirm key ssh key
       run: |
