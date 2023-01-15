@@ -66,6 +66,8 @@ Hello, world!
 ####
 ```
 
+You can see the code run in [this GitHub action](https://github.com/jimkring/python-sandbox-wasm/actions/workflows/python-app.yml) workflow that tests it.
+
 # Future Needs
 
 ## Calling into Python C API
