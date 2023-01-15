@@ -14,7 +14,7 @@ Incompatibility:
 
 - NOT WORKING WITH python 3.11 (seems wasm-python library does not support 3.11 yet, as of Jan 14, 2023)
 
-## How it all works
+## How it All Works
 
 - From our host python we use the [wasmer-python](https://github.com/wasmerio/wasmer-python) library to load and run the [python web assembly](https://wapm.io/python/python) (wasm) from wapm (web assembly package manager).
 
@@ -28,42 +28,58 @@ Incompatibility:
 
 > Note: it does not seem possible to redirect the std output of the web assembly to file FROM THE HOST PYTHON.  This only works from the python code running inside the web assembly. That's why we have to prepend the unsafe code with a few lines of code that will write the std output to a file.
 
-## Resources
+## Useful Resources
 Tools and examples used here:
 
-- starting point example: https://github.com/wasmerio/wasmer-python/blob/master/examples/wasi.py
-- wasmer-python: https://github.com/wasmerio/wasmer-python
-- wapm python.wam package: https://wapm.io/python/python
+- [starting point example](https://github.com/wasmerio/wasmer-python/blob/master/examples/wasi.py) - this was the starting point for this project/code ([example_sandbox.py](https://github.com/jimkring/python-sandbox-wasm/blob/main/example_sandbox.py))
+- [wasmer-python](https://github.com/wasmerio/wasmer-python) - the python library that we use to load/compile/run the python.wasm and our sandboxed python script
+- [wapm python.wasm package](https://wapm.io/python/python) - the python web assembly package that installs python.wasm into our project folder so we can call it with wasmer.
 
-## Prerequisite Setup
+## Required Tools and Setup
+
 ### Install wasmer and wapm
 
+Again, wasmer is the web assembly runtime and wapm is the web assembly package manager that will install the python web assembly package.
+
+On MacOS with homebrew
 ```shell
 $ brew install wasmer
 $ brew install wapm
+```
+
+From the instructions on [wasmer.io](https://wasmer.io/)
+```shell
+$ curl https://get.wasmer.io -sSfL | sh
+```
+
+### Install python web assembly using wapm
+
+```shell
 $ wapm install python/python
 ```
 
-This will result in a wapm_packages directory in your project folder.
+This will result in a wapm_packages directory in your project folder, which contains python compiled as a web assembly.
 
 ### Setup your python environment
 
-create a virtual environment as you would normally do
+We're not going to setup our "host" python environment that will run our safe/trusted code.
+
+create a virtual environment as you would normally do (this is just and example using `venv`)
 ```shell
 python -m venv .venv
 ```
 
-activate the virtual environment
+activate the virtual environment (if you are using one)
 ```shell
 $ source .venv/bin/activate
 ```
 
-install packages
+install packages in the [requirements.txt](https://github.com/jimkring/python-sandbox-wasm/blob/main/requirements/requirements.txt) file
 ```shell
 $ pip install -r requirements/requirements.txt
 ```
 
-## Running the example
+## Run the example
 
 Run the example_sandbox.py file
 ```python
@@ -75,9 +91,11 @@ Hello, world!
 ####
 ```
 
-You can see the code run in [this GitHub action](https://github.com/jimkring/python-sandbox-wasm/actions/workflows/python-app.yml) workflow that tests it.
+> Note: You can see the code run in [this GitHub action](https://github.com/jimkring/python-sandbox-wasm/actions/workflows/python-app.yml) workflow that tests it. You can verify it's working because you can see the example output:
 
-# Future Needs
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/381432/212523083-334f1e4d-e8e3-4553-84d5-5073bea3f53c.png">
+
+# Future Needs (Roadmap?)
 
 ## Calling into Python C API
 
