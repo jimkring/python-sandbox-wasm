@@ -21,7 +21,7 @@ jobs:
 #        brew install wasmer
 #        brew install wapm
     - name: Setup Wasmer
-      uses: wasmerio/setup-wasmer@v1
+      uses: wasmerio/setup-wasmer@v2
     - name: install python wasm
       # pipe "y" into wapm install to confirm key ssh key
       run: |
