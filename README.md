@@ -5,6 +5,15 @@ It uses wasmer-python to  run the wasm build of python and wapm to install the p
 
 [![Setup and Test](https://github.com/jimkring/python-sandbox-wasm/actions/workflows/python-app.yml/badge.svg)](https://github.com/jimkring/python-sandbox-wasm/actions/workflows/python-app.yml)
 
+Compatibility:
+
+- OS: Linux, MacOS, and Windows (tested on ubuntu-latest, macos-latest and windows-latest github runners)
+- Python: 3.7, 3.8, 3.9 and 3.10 (tested with standard cpython [actions/setup-python](https://github.com/actions/setup-python))
+
+Incompatibility:
+
+- NOT WORKING WITH python 3.11 (seems wasm-python library does not support 3.11 yet, as of Jan 14, 2023)
+
 ## How it all works
 
 - From our host python we use the [wasmer-python](https://github.com/wasmerio/wasmer-python) library to load and run the [python web assembly](https://wapm.io/python/python) (wasm) from wapm (web assembly package manager).
