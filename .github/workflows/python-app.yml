@@ -30,7 +30,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Setup Wasmer
-      uses: wasmerio/setup-wasmer@v2
+      uses: wasmerio/setup-wasmer@v3
     - name: install python wasm
       # pipe "y" into wapm install to confirm key ssh key
       run: |
