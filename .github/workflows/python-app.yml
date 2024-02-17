@@ -34,7 +34,7 @@ jobs:
     - name: install python wasm
       # pipe "y" into wapm install to confirm key ssh key
       run: |
-        echo y | wapm install python/python
+        echo y | wapm install python
     - name: Set up Python ${{ matrix.python }}
       uses: actions/setup-python@v4
       with:
